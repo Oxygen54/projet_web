@@ -35,8 +35,8 @@
                                             Posted by Alexis
                                         </div>
                                         <div class="interaction">
-                                            <a href="#" class="like">Like</a> |
-                                            <a href="#" class="like">Dislike</a>
+                                            <a href="#" class="like" style="color: green;">Like</a> |
+                                            <a href="#" class="like" style="color: red;">Dislike</a>
                                             @if (1)
                                                 |
                                                 <a href="#" class="edit">Edit</a> |
