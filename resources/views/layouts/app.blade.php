@@ -11,7 +11,7 @@
     <title>
         @if (Route::has('login'))
                 @auth
-                    BDE || Member Area
+                    BDE || User's Area
                 @else
                     BDE || Connection
                 @endauth
