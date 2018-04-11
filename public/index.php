@@ -11,7 +11,7 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader coucou c'est moi
+| Register The Auto Loader coucou c'est moii
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
