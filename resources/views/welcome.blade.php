@@ -102,5 +102,7 @@
     <footer>
         <p>Copyright &copy; BDE eXia - <?php echo date('Y'); ?></p>
     </footer>
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="{{ URL::to('src/js/app.js') }}"></script>
     </body>
 </html>
