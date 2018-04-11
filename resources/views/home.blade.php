@@ -21,7 +21,7 @@
                             <div class="card-body">test ideas</div>
                         </div>
                     </div>
-
+<div class="test"></div>
                         <!-- EVENT BOX -->
                         <div class="col-md-6">
                             <div class="card">
