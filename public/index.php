@@ -11,7 +11,7 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader
+| Register The Auto Loader coucou c'est moi
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
@@ -25,7 +25,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Turn On The Lights
+| Turn On The Lights coucou c'est cedric
 |--------------------------------------------------------------------------
 |
 | We need to illuminate PHP development, so let us turn on the lights.
