@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+<div class="test"></div>
                     <div class="row">
                     <!-- IDEA BOX -->
                     <div class="col-md-6">
