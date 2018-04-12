@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dlimage', function(){
+
+
+    return view('/cesi/dlimage'); //to the dl images page
+});
