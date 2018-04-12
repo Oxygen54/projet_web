@@ -35,13 +35,14 @@
                                             <div class="col-md-12 col-md-offset-3">
                                                 @foreach($posts as $post)
                                                     <article class="post" data-postid="{{ $post->id }}">
+                                                        <p>{{ $post->title }}</p>
                                                         <p>{{ $post->body }}</p>
                                                         <div class="info">
                                                             Posted by {{ $post->user->first_name }} on {{ $post->created_at }}
                                                         </div>
                                                         <div class="interaction">
-                                                            <a href="#" class="btn btn-xs btn-outline-success like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
-                                                            <a href="#" class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                                                            <a href="#" class="like btn btn-xs btn-outline-success">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
+                                                            <a href="#" class="like btn btn-xs btn-outline-danger">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
                                                         </div>
                                                     </article>
                                                 @endforeach
@@ -66,7 +67,8 @@
         </div>
     </div>
 
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="{{ asset('/js/like.js') }}"></script>
 
     <script type="text/javascript">

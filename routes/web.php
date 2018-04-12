@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/post', 'HomeController@index')->name('post');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('welcome');
-})->name('post');
+})->name('home');
 
 
-Route::get('/post', 'PostController@home');
+Route::get('/home', 'PostController@home');
 Route::get('/like', 'PostController@likePost')->name('like');
