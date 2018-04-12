@@ -24,7 +24,7 @@
                                     <div class="form-group">
                                         <textarea class="form-control" name="body" id="new-post" style="min-height:100px;height:50%;" placeholder="Write your idea..."></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Post Idea</button>
+                                    <button type="submit" class="btn btn-outline-primary">Post Idea</button>
                                     <input type="hidden" value="{{ Session::token() }}" name="_token">
                                 </form>
                                     <br>
