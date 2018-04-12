@@ -31,63 +31,27 @@
                                 <header><h3>The ideas...</h3></header>
                                 <div class="card-body">
                                     <div class="card-body">
-                                    <article class="post" data-postid="1">
-                                        <p>Make a party Friday night</p>
-                                        <div class="info" style="color: #aaa;font-style: italic;">
-                                            Posted by Alexis at 4/11/18 3:50 PM
-                                        </div>
-                                        <div class="interaction">
-                                            <a href="#" class="like" style="color: green;">Like</a> |
-                                            <a href="#" class="like" style="color: red;">Dislike</a>
-                                            @if (1)
-                                                |
-                                                <a href="#" class="edit">Edit</a> |
-                                                <a href="">Delete</a>
-                                            @endif
-                                        </div>
-                                    </article>
+                                        <section class="row posts">
+                                            <div class="col-md-12 col-md-offset-3">
+                                                @foreach($posts as $post)
+                                                    <article class="post" data-postid="{{ $post->id }}">
+                                                        <p>{{ $post->body }}</p>
+                                                        <div class="info">
+                                                            Posted by {{ $post->user->first_name }} on {{ $post->created_at }}
+                                                        </div>
+                                                        <div class="interaction">
+                                                            <a href="#" class="btn btn-xs btn-outline-success like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
+                                                            <a href="#" class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                                                        </div>
+                                                    </article>
+                                                @endforeach
+                                            </div>
+                                        </section>
                                     </div>
-                                    <div class="card-body">
-                                    <article class="post" data-postid="1">
-                                        <p>buy some screens</p>
-                                        <div class="info" style="color: #aaa;font-style: italic;">
-                                            Posted by James at 2/11/18 6:45 PM
-                                        </div>
-                                        <div class="interaction">
-                                            </span><a href="#" class="like" style="color: green;">Like</a> |
-                                            <a href="#" class="like" style="color: red;">Dislike</a>
-                                            @if (1)
-                                                |
-                                                <a href="#" class="edit">Edit</a> |
-                                                <a href="">Delete</a>
-                                            @endif
-                                        </div>
-                                    </article>
-                                    </div>
-                                    <div class="card-body">
-                                    <article class="post" data-postid="1">
-                                        <p>Add a babyfoot</p>
-                                        <div class="info" style="color: #aaa;font-style: italic;">
-                                            Posted by Kim at 1/11/18 9:41 AM
-                                        </div>
-                                        <div class="interaction">
-                                            <a href="#" class="like" style="color: green;">Like</a> |
-                                            <a href="#" class="like" style="color: red;">Dislike</a>
-                                            @if (1)
-                                                |
-                                                <a href="#" class="edit">Edit</a> |
-                                                <a href="">Delete</a>
-                                            @endif
-                                        </div>
-                                    </article>
-                                    </div>
-                                </div>
-
-
                             </div>
                         </div>
                     </div>
-
+                    </div>
                         <!-- EVENT BOX -->
                         <div class="col-md-6">
                             <div class="card">
@@ -101,10 +65,12 @@
             </div>
         </div>
     </div>
-</div>
-<script>
-    var token = '{{ Session::token() }}';
-    var urlEdit = '{{ route('edit') }}';
-    var urlLike = '{{ route('like') }}';
-</script>
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="{{ asset('/js/like.js') }}"></script>
+
+    <script type="text/javascript">
+        var token = '{{ Session::token() }}';
+        var urlLike = '{{ route('like') }}';
+    </script>
 @endsection
