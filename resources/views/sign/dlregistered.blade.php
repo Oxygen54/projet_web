@@ -1,7 +1,4 @@
 
-
-
-
 @php
 // How to Generate CSV File from Array in PHP Script
 $results = array (
@@ -14,7 +11,7 @@ $results = array (
         "email_id" => "johnnyohuck@inbound.plus"
     )
 );
-$filename = 'userData.csv';
+$filename = 'Registered.csv';
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$filename");
 $output = fopen("php://output", "w");
