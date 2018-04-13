@@ -20,6 +20,10 @@ class PostController extends Controller
 
     }
 
+    public function getLikes(){
+        return $this->hasMany('app\Like')->count();
+    }
+
     public function likePost(Request $request){
         $post_id = $request['postId'];
         $is_like = $request['isLike'] === 'true';
@@ -56,5 +60,20 @@ class PostController extends Controller
         }
 
         return null;
+    }
+
+    public function CreatePost(Request $request)
+    {
+        $this->validate($request, [
+            'body' => 'required|max:1000'
+        ]);
+        $post = new Post();
+        $post->body = $request['body'];
+        $post->title = $request['title_idea'];
+        $message = 'There was an error';
+        if ($request->user()->posts()->save($post)) {
+            $message = 'Post successfully created!';
+        }
+        return redirect()->route('home')->with(['message' => $message]);
     }
 }

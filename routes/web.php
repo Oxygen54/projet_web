@@ -24,5 +24,6 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::get('/home', 'PostController@home');
+Route::get('/home', 'PostController@home')->middleware('auth');
 Route::get('/like', 'PostController@likePost')->name('like');
+Route::post('/createpost', ['uses' => 'PostController@CreatePost', 'as' => 'post.create', 'middleware' => 'auth']);

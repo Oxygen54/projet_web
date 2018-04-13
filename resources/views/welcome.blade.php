@@ -1,6 +1,16 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>BDE Website</title>
+    <title>BDE Website</title>
+
+    <!-- REFERENCEMENT -->
+    <meta name="author" content="BDE Nancy" />
+    <meta name="description" content="This website is used by the members of the BDE exia. It helps to get informations about events, food, etc..." />
+    <meta name="keywords" content="BDE, Nancy, exia, cesi, informatique, IT, ingenieur, engineer, school, students" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -38,7 +48,6 @@
     <footer>
         <p>Copyright &copy; BDE eXia - <?php echo date('Y'); ?></p>
     </footer>
-        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="{{ URL::to('src/js/app.js') }}"></script>
     </body>
 </html>
