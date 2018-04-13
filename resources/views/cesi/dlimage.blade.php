@@ -4,6 +4,10 @@
 
 
 @php
+
+use App\Mail\MailTest;
+
+
 $files = glob("img/*.*");
 
 $receveur = 'olivier.descoups@viacesi.fr';
