@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 
 
 @php
@@ -9,3 +11,6 @@ for ($i=1; $i<count($files); $i++)
     echo '<img src="'.$num.'" alt="random image">'."&nbsp;&nbsp;";
 }
 @endphp
+
+
+@endsection
