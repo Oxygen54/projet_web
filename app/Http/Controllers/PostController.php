@@ -20,6 +20,12 @@ class PostController extends Controller
 
     }
 
+    public function idea(){
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('idea_box', ['posts' => $posts]);
+
+    }
+
     public function getLikes(){
         return $this->hasMany('app\Like')->count();
     }
@@ -65,11 +71,12 @@ class PostController extends Controller
     public function CreatePost(Request $request)
     {
         $this->validate($request, [
+            'title_idea' => 'required|max: 30',
             'body' => 'required|max:1000'
         ]);
         $post = new Post();
-        $post->body = $request['body'];
         $post->title = $request['title_idea'];
+        $post->body = $request['body'];
         $message = 'There was an error';
         if ($request->user()->posts()->save($post)) {
             $message = 'Post successfully created!';

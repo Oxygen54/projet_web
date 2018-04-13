@@ -11,19 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-
+// HOME
+Route::get('/', function () {return view('welcome');})->name('home');
 Route::get('/home', 'PostController@home')->middleware('auth');
+
+
+// IDEA BOX
+Route::get('/idea', 'PostController@idea')->middleware('auth');
+
+
+// LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
 Route::post('/createpost', ['uses' => 'PostController@CreatePost', 'as' => 'post.create', 'middleware' => 'auth']);
