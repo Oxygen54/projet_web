@@ -5,10 +5,9 @@
 
 @php
 
-use App\Mail\MailTest;
 
 
-$files = glob("img/*.*");
+$files = glob("img/*.*");//import
 
 $receveur = 'olivier.descoups@viacesi.fr';
 
