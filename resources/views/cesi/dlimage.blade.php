@@ -5,6 +5,9 @@
 
 @php
 $files = glob("img/*.*");
+
+$receveur = 'olivier.descoups@viacesi.fr';
+
 for ($i=0; $i<count($files); $i++)
 {
     $num = $files[$i];
@@ -20,6 +23,11 @@ for ($i=0; $i<count($files); $i++)
 
 
     '."&nbsp;&nbsp;";
+
+
+    Mail::to($receveur)->send(new MailTest);
+
+
 }
 @endphp
 
