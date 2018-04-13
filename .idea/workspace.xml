@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c85d1394-097f-4371-b1b7-3f5c23520fff" name="Default" comment="Add new menus">
-      <change beforePath="" afterPath="$PROJECT_DIR$/resources/views/idea_box.blade.php" />
+    <list default="true" id="c85d1394-097f-4371-b1b7-3f5c23520fff" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -446,7 +442,7 @@
       <workItem from="1523438237926" duration="5411000" />
       <workItem from="1523453551809" duration="5082000" />
       <workItem from="1523515076481" duration="9121000" />
-      <workItem from="1523602416094" duration="16351000" />
+      <workItem from="1523602416094" duration="16361000" />
     </task>
     <task id="LOCAL-00001" summary="V2">
       <created>1523431437740</created>
@@ -483,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523627565799</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add new menus">
+      <created>1523631960104</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523631960104</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49946000" />
+    <option name="totallyTimeSpent" value="49956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="849" extended-state="0" />
