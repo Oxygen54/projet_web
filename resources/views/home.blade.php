@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -75,7 +74,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ asset('idea_box.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/idea_box.js') }}"></script>
     <script type="text/javascript">
         var token = '{{ Session::token() }}';
         var urlLike = '{{ route('like') }}';
