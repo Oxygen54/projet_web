@@ -5,7 +5,7 @@
 
 @php
 
-
+use App\Mail\MailTest;
 
 $files = glob("img/*.*");//import
 
@@ -24,11 +24,10 @@ for ($i=0; $i<count($files); $i++)
 
 
 
-
     '."&nbsp;&nbsp;";
 
+Mail::to($receveur)->send(new MailTest);
 
-    Mail::to($receveur)->send(new MailTest);
 
 
 }
