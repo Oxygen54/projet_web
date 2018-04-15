@@ -25,6 +25,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
+                        <a href="{{ url('/event') }}">Event</a>
                         <a href="{{ url('/idea') }}">Idea Box</a>
                         <a href="{{ url('/home') }}">Dashboard</a>
                     @else

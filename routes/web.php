@@ -23,6 +23,8 @@ Route::get('/home', 'PostController@home')->middleware('auth');
 // IDEA BOX
 Route::get('/idea', 'PostController@idea')->middleware('auth');
 
+// EVENT
+Route::get('/event', function () {return view('event');})->name('event');
 
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
