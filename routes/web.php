@@ -16,8 +16,10 @@ Auth::routes();
 
 
 // HOME
-Route::get('/', function () {return view('welcome');})->name('home');
-Route::get('/home', 'PostController@home')->middleware('auth');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+Route::get('/home', 'PostController@home')->middleware('auth')->name('home');
 
 
 // IDEA BOX
@@ -29,3 +31,5 @@ Route::get('/event', function () {return view('event');})->name('event');
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
 Route::post('/createpost', ['uses' => 'PostController@CreatePost', 'as' => 'post.create', 'middleware' => 'auth']);
+Route::get('/delete-post/{post_id}', ['uses' => 'PostController@DeletePost', 'as' => 'post.delete', 'middleware' => 'auth']);
+Route::post('/edit', ['uses' => 'PostController@EditPost', 'as' => 'edit']);
