@@ -15,7 +15,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                                <!-- IDEA BOX -->
+                                                <!-- EVENT -->
                                                 <div class="card-body">
 
                                                     @if (Route::has('login'))
@@ -24,14 +24,14 @@
                                                             <form action="{{ route('event.create') }}" method="post">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control"
-                                                                           id="title_event"
-                                                                           name="title_event"
+                                                                           id="title_event" name="title_event"
                                                                            placeholder="Write your title...">
                                                                 </div>
                                                                 <div class="form-group">
-                                        <textarea class="form-control" name="event" id="new-event"
-                                                  style="min-height:100px;height:50%;"
-                                                  placeholder="Write your event..."></textarea>
+                                                                    <textarea class="form-control" name="event"
+                                                                              id="new-event"
+                                                                              style="min-height:100px;height:50%;"
+                                                                              placeholder="Write your event..."></textarea>
                                                                 </div>
                                                                 <button type="submit" class="btn btn-outline-primary">
                                                                     Post event

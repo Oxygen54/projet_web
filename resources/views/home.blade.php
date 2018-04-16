@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <div class="col-md-12">
-            <div class="flex-center position-ref full-height">
+            <div class="space"></div>
+            <div class="flex-center position-ref">
                 <div>
                     <img src="{{URL::asset('/img/logo.png')}}" alt="BDE Picture" height="160" width="180"/>
                 </div>

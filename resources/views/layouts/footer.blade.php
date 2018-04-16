@@ -1,5 +1,5 @@
 <footer>
-    Copyright &copy; BDE eXia - <?php echo date('Y'); ?>
+    <strong>Copyright &copy; BDE eXia - <?php echo date('Y'); ?></strong>
 </footer>
 </body>
 </html>
