@@ -53,6 +53,8 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
+                        <li><a class="nav-link" href="{{ route('shop') }}" style="color: white;">Shop</a></li>
+                        <li><a class="nav-link" href="{{ route('event') }}" style="color: white;">Events</a></li>
                         <li><a class="nav-link" href="{{ route('idea') }}" style="color: white;">IdeaBox</a></li>
                         <li><a class="nav-link" href="{{ route('login') }}" style="color: white;">{{ __('Login') }}</a>
                         </li>
@@ -67,6 +69,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                <a href="{{ route('shop') }}" class="dropdown-item">Shop</a>
                                 <a href="{{ route('event') }}" class="dropdown-item">Events</a>
                                 <a href="{{ route('idea') }}" class="dropdown-item">IdeaBox</a>
                                 <a href="{{ route('gestion') }}" class="dropdown-item">Gestion</a>

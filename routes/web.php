@@ -39,3 +39,6 @@ Route::post('/subscribe', ['uses' => 'EventController@LikeEvent', 'as' => 'subsc
 Route::post('/createevent', ['uses' => 'EventController@CreateEvent', 'as' => 'event.create', 'middleware' => 'auth']);
 Route::get('/delete-event/{post_id}', ['uses' => 'EventController@DeleteEvent', 'as' => 'event.delete', 'middleware' => 'auth']);
 Route::post('/edit_event', ['uses' => 'EventController@EditEvent', 'as' => 'edit_event', 'middleware' => 'auth']);
+
+// SHOP
+Route::get('/shop', 'ShopController@shop')->name('shop');
