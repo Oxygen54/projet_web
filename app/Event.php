@@ -11,7 +11,7 @@ class Event extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function Subscribes()
+    public function subscribes()
     {
         return $this->belongsTo('App\Subscribe');
     }

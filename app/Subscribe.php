@@ -11,7 +11,7 @@ class Subscribe extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function event()
+    public function post()
     {
         return $this->belongsTo('App\Event');
     }

@@ -17,4 +17,14 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany('App\Like');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
+
+    public function subscribes()
+    {
+        return $this->hasMany('App\Subscribe');
+    }
 }

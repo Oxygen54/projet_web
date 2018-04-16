@@ -28,11 +28,6 @@ Route::get('/idea', 'PostController@idea')->name('idea');
 // EVENT
 Route::get('/event', 'EventController@event')->name('event');
 
-// EVENT
-Route::get('/event', function () {
-    return view('event');
-})->name('event');
-
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
 Route::post('/createpost', ['uses' => 'PostController@CreatePost', 'as' => 'post.create', 'middleware' => 'auth']);
@@ -40,7 +35,7 @@ Route::get('/delete-post/{post_id}', ['uses' => 'PostController@DeletePost', 'as
 Route::post('/edit', ['uses' => 'PostController@EditPost', 'as' => 'edit', 'middleware' => 'auth']);
 
 // EVENT SYSTEM
-Route::post('/subscribe', ['uses' => 'EventController@Subscribes', 'as' => 'subscribe']);
+Route::post('/subscribe', ['uses' => 'EventController@LikeEvent', 'as' => 'subscribe']);
 Route::post('/createevent', ['uses' => 'EventController@CreateEvent', 'as' => 'event.create', 'middleware' => 'auth']);
 Route::get('/delete-event/{post_id}', ['uses' => 'EventController@DeleteEvent', 'as' => 'event.delete', 'middleware' => 'auth']);
 Route::post('/edit_event', ['uses' => 'EventController@EditEvent', 'as' => 'edit_event', 'middleware' => 'auth']);
