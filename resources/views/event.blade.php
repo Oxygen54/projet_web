@@ -53,7 +53,7 @@
                                                                         <article class="event"
                                                                                  data-postid="{{ $event->id }}">
                                                                             <p>{{ $event->title }}</p>
-                                                                            <p>{{ $event->event }}</p>
+                                                                            <p>{{ $event->body }}</p>
                                                                             <div class="info">
                                                                                 Posted by {{ $event->user->name }}
                                                                                 on {{ $event->created_at }}
@@ -65,7 +65,7 @@
                                                                                            class="btn btn-xs btn-outline-success subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 1 ? 'You subscribed this event' : 'Subscribe' : 'Subscribe'  }}</a>
                                                                                         |
                                                                                         <a href="#"
-                                                                                           class="btn btn-xs btn-outline-danger subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 0 ? 'You don\'t subscribed this event' : 'UnSubscribe' : 'UnSubscribe'  }}</a>
+                                                                                           class="btn btn-xs btn-outline-danger subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 0 ? 'You unsubscribed this event' : 'UnSubscribe' : 'UnSubscribe'  }}</a>
                                                                                         @if(Auth::user() == $event->user)
                                                                                             |
                                                                                             <a href="#" class="edit">Edit</a>

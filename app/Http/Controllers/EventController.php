@@ -76,7 +76,7 @@ class EventController extends Controller
         return redirect()->route('event')->with(['message' => $message]);
     }
 
-    public function DeletePost($event_id)
+    public function DeleteEvent($event_id)
     {
         $event = Event::where('id', $event_id)->first();
         if (Auth::user() != $event->user) {
