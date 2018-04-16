@@ -5,7 +5,6 @@ $(document).ready(function() {
 
     $('.post').find('.interaction').find('.edit').on('click', function (event) {
         event.preventDefault();
-
         postTitleElement = event.target.parentNode.parentNode.childNodes[2];
         postBodyElement = event.target.parentNode.parentNode.childNodes[1];
 

@@ -7,11 +7,6 @@
                 <div class="card">
                     <div class="card-header">Idea Box</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         <div class="row">
                             <!-- IDEA BOX -->
                             <div class="card-body">
@@ -49,7 +44,8 @@
                                                         <p>{{ $post->title }}</p>
                                                         <p>{{ $post->body }}</p>
                                                         <div class="info">
-                                                            Posted by {{ $post->user->name }} on {{ $post->created_at }}
+                                                            Posted by {{ $post->user->name }}
+                                                            on {{ $post->created_at }}
                                                         </div>
                                                         @if (Route::has('login'))
                                                             @auth
@@ -58,7 +54,7 @@
                                                                        class="btn btn-xs btn-outline-success like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
                                                                     |
                                                                     <a href="#"
-                                                                       class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                                                                       class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
                                                                     @if(Auth::user() == $post->user)
                                                                         |
                                                                         <a href="#" class="edit">Edit</a> |

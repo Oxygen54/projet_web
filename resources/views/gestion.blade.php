@@ -7,11 +7,6 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         <div class="row">
                             <!-- IDEA BOX -->
                             <div class="col-md-6">
@@ -44,7 +39,7 @@
                                                                 <p>{{ $post->title }}</p>
                                                                 <p>{{ $post->body }}</p>
                                                                 <div class="info">
-                                                                    Posted by {{ $post->user->name }}
+                                                                    {{--Posted by {{ $post->user->name }}--}}
                                                                     on {{ $post->created_at }}
                                                                 </div>
                                                                 <div class="interaction">
@@ -52,7 +47,7 @@
                                                                        class="btn btn-xs btn-outline-success like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
                                                                     |
                                                                     <a href="#"
-                                                                       class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                                                                       class="btn btn-xs btn-outline-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
                                                                     @if(Auth::user() == $post->user)
                                                                         |
                                                                         <a href="#" class="edit">Edit</a> |
@@ -68,6 +63,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (Route::has('login'))
+                                @auth
                             <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -98,6 +95,10 @@
                                 </div><!-- /.modal-dialog -->
                             </div><!-- /.modal -->
                             <!-- EVENT BOX -->
+                                @else
+
+                                @endauth
+                            @endif
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">Events</div>
@@ -110,11 +111,6 @@
             </div>
         </div>
     </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ asset('/js/idea_box.js') }}"></script>
     <script type="text/javascript">
         var token = '{{ Session::token() }}';
