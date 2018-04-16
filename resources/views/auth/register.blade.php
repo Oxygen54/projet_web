@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@if (Route::has('login'))
+    @auth
+        @section('title', 'BDE || User\'s Area')
+@else
+    @section('title', 'BDE || Connection')
+@endauth
+@endif
+
+@extends('layouts.header')
 
 @section('content')
 <div class="container">
@@ -75,3 +83,4 @@
     </div>
 </div>
 @endsection
+@include(layouts.footer)

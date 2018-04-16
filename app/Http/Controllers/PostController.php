@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
-    public function home(){
+    public function gestion()
+    {
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('home', ['posts' => $posts]);
+        return view('gestion', ['posts' => $posts]);
 
     }
 
@@ -81,7 +82,7 @@ class PostController extends Controller
         if ($request->user()->posts()->save($post)) {
             $message = 'Post successfully created!';
         }
-        return redirect()->route('home')->with(['message' => $message]);
+        return redirect()->route('idea_box')->with(['message' => $message]);
     }
 
     public function DeletePost($post_id)
@@ -91,7 +92,7 @@ class PostController extends Controller
             return redirect()->back();
         }
         $post->delete();
-        return redirect()->route('home')->with(['message' => 'Successfully deleted!']);
+        return redirect()->route('idea_box')->with(['message' => 'Successfully deleted!']);
     }
 
     public function EditPost(Request $request)
