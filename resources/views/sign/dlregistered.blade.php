@@ -1,16 +1,15 @@
 
 @php
 // How to Generate CSV File from Array in PHP Script
-$results = array (
-    "0" => array(
-        "name"           => "Anna Smith",
-        "email_id"      => "annabsmith@inbound.plus"
-    ),
-    "1" => array(
-        "name"           => "Johnny Huck",
-        "email_id" => "johnnyohuck@inbound.plus"
-    )
-);
+
+
+$bdd = new PDO('mysql:host=localhost;dbname=bde','root','');
+
+
+$results = $bdd->query('SELECT COUNT(*) AS users');
+
+
+
 $filename = 'Registered.csv';
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$filename");
