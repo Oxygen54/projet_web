@@ -65,7 +65,7 @@
                                                                                            class="btn btn-xs btn-outline-success subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 1 ? 'You subscribed this event' : 'Subscribe' : 'Subscribe'  }}</a>
                                                                                         |
                                                                                         <a href="#"
-                                                                                           class="btn btn-xs btn-outline-danger subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 0 ? 'You unsubscribed this event' : 'UnSubscribe' : 'UnSubscribe'  }}</a>
+                                                                                           class="btn btn-xs btn-outline-danger subscribe">{{ Auth::user()->subscribes()->where('event_id', $event->id)->first() ? Auth::user()->subscribes()->where('event_id', $event->id)->first()->event == 0 ? 'You unsubscribed this event' : 'Unsubscribe' : 'Unsubscribe'  }}</a>
                                                                                         @if(Auth::user() == $event->user)
                                                                                             |
                                                                                             <a href="#" class="edit">Edit</a>
@@ -99,11 +99,6 @@
                                                             <div class="modal-body">
                                                                 <form>
                                                                     <div class="form-group">
-                                                                        <label for="title_event">Edit the Title</label>
-                                                                        <input type="text" class="form-control"
-                                                                               id="title_event"
-                                                                               name="title_event">
-                                                                        <br><br>
                                                                         <label for="event-body">Edit the event</label>
                                                                         <textarea class="form-control" name="event-body"
                                                                                   id="event-body" rows="5"></textarea>

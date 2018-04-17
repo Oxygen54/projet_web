@@ -64,11 +64,11 @@ class EventController extends Controller
     {
         $this->validate($request, [
             'title_event' => 'required|max: 30',
-            'body' => 'required|max:1000'
+            'event' => 'required|max:1000'
         ]);
         $event = new Event();
         $event->title = $request['title_event'];
-        $event->body = $request['body'];
+        $event->body = $request['event'];
         $message = 'There was an error';
         if ($request->user()->events()->save($event)) {
             $message = 'Post successfully created!';
@@ -89,15 +89,13 @@ class EventController extends Controller
     public function EditEvent(Request $request)
     {
         $this->validate($request, [
-            'body' => 'required',
-            'title_event' => 'required'
+            'event' => 'required'
         ]);
         $event = Event::find($request['eventId']);
         if (Auth::user() != $event->user) {
             return redirect()->back();
         }
-        $event->body = $request['body'];
-        $event->title = $request['title_event'];
+        $event->body = $request['event'];
         $event->update();
         return response()->json(['new_body' => $event->body], 200);
     }

@@ -1,18 +1,14 @@
 $(document).ready(function () {
     var eventId = 0;
     var eventBodyElement = null;
-    var eventTitleElement = null;
 
     $('.event').find('.interaction').find('.edit').on('click', function (event) {
         event.preventDefault();
-        eventTitleElement = event.target.parentNode.parentNode.childNodes[2];
-        eventBodyElement = event.target.parentNode.parentNode.childNodes[1];
+        eventBodyElement = event.target.parentNode.parentNode.childNodes[0];
 
         var eventBody = eventBodyElement.textContent;
-        var eventTitle = eventTitleElement.textContent;
         eventId = event.target.parentNode.parentNode.dataset['eventid'];
         $('#event-body').val(eventBody);
-        $('#title_event').val(eventTitle);
         $('#edit-modal').modal();
     });
 
@@ -20,7 +16,7 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: urlEdit,
-            data: {body: $('#event-body').val(), title_event: $('#title_event').val(), eventId: eventId, _token: token}
+            data: {body: $('#event-body').val(), eventId: eventId, _token: token}
         })
             .done(function (msg) {
                 $(eventBodyElement).text(msg['new_body']);
@@ -35,15 +31,15 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: urlLike,
+            url: urlSubscribe,
             data: {isLike: isLike, eventId: eventId, _token: token}
 
         }).done(function () {
-            event.target.innerText = isLike ? event.target.innerText == 'Like' ? 'You like this post' : 'Like' : event.target.innerText == 'Dislike' ? 'You don\'t like this post' : 'Dislike';
+            event.target.innerText = isLike ? event.target.innerText == 'Subscribe' ? 'You subscribed this event' : 'Subscribe' : event.target.innerText == 'Unsubscribe' ? 'You unsuscribed this event' : 'Unsubscribe';
             if (isLike) {
-                event.target.nextElementSibling.innerText = 'Dislike';
+                event.target.nextElementSibling.innerText = 'Unsubscribe';
             } else {
-                event.target.previousElementSibling.innerText = 'Like';
+                event.target.previousElementSibling.innerText = 'Subscribe';
             }
         });
     });
