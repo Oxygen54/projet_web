@@ -73,22 +73,12 @@ class EventController extends Controller
         $event->title = $request['title_event'];
         $event->body = $request['event'];
 
-        $event_id = $request['postid'];
 
         $file = $request->file('image');
         $filename = $event->title . '.jpg';
-        $old_filename = $event->title . '.jpg';
-        $update = false;
-        if (Storage::disk('local')->has($old_filename)) {
-            $old_file = Storage::disk('local')->get($old_filename);
-            Storage::disk('local')->put($filename, $old_file);
-            $update = true;
-        }
+
         if ($file) {
             Storage::disk('local')->put($filename, File::get($file));
-        }
-        if ($update && $old_filename !== $filename) {
-            Storage::delete($old_filename);
         }
 
         $message = 'There was an error';

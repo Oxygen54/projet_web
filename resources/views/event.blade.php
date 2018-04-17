@@ -61,10 +61,10 @@
                                                                             <p style="font-weight: bold;">{{ $event->title }}</p>
                                                                             <p>{{ $event->body }}</p>
                                                                             <p>
-                                                                                @if (Storage::disk('local')->has($event->title . '.jpg'))
+                                                                                @if (Storage::disk('local')->has($event->title.'.jpg'))
                                                                                     <section class="row new-event">
                                                                                         <div class="col-md-6 col-md-offset-3">
-                                                                                            <img src="{{ route('event.image', ['filename' => $event->title . '.jpg']) }}"
+                                                                                            <img src="{{ route('event.image', ['filename' => $event->title.'.jpg']) }}"
                                                                                                  alt=""
                                                                                                  style="width: 80%;height:auto;"
                                                                                                  class="img-responsive">

@@ -21,6 +21,11 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/gestion', 'PostController@gestion')->middleware('auth')->name('gestion');
 
+// CONTACT
+// HOME
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 // IDEA BOX
 Route::get('/idea', 'PostController@idea')->name('idea');
@@ -45,3 +50,7 @@ Route::get('/eventimage/{filename}', ['uses' => 'EventController@getEventImage',
 
 // SHOP
 Route::get('/shop', 'ShopController@shop')->name('shop');
+
+// CONTACT SEND
+// SHOP
+Route::post('/send', 'ContactController@send')->name('send');

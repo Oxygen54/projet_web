@@ -56,10 +56,18 @@
                         <li><a class="nav-link" href="{{ route('shop') }}" style="color: white;">Shop</a></li>
                         <li><a class="nav-link" href="{{ route('event') }}" style="color: white;">Events</a></li>
                         <li><a class="nav-link" href="{{ route('idea') }}" style="color: white;">IdeaBox</a></li>
-                        <li><a class="nav-link" href="{{ route('login') }}" style="color: white;">{{ __('Login') }}</a>
+                        <li><a class="nav-link" href="{{ route('contact') }}" style="color: white;">Contact</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color: white;" href="#"
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Connection <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a href="{{ route('login') }}" class="dropdown-item">{{ __('Login') }}</a>
+                                <a href="{{ route('register') }}" class="dropdown-item">{{ __('Register') }}</a>
+                            </div>
                         </li>
-                        <li><a class="nav-link" href="{{ route('register') }}"
-                               style="color: white;">{{ __('Register') }}</a></li>
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color: white;" href="#"
@@ -73,6 +81,7 @@
                                 <a href="{{ route('event') }}" class="dropdown-item">Events</a>
                                 <a href="{{ route('idea') }}" class="dropdown-item">IdeaBox</a>
                                 <a href="{{ route('gestion') }}" class="dropdown-item">Gestion</a>
+                                <a href="{{ route('contact') }}" class="dropdown-item">Contact</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
