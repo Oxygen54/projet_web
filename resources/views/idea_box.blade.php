@@ -41,7 +41,7 @@
                                             <div class="col-md-12 col-md-offset-3">
                                                 @foreach($posts as $post)
                                                     <article class="post" data-postid="{{ $post->id }}">
-                                                        <p>{{ $post->title }}</p>
+                                                        <p style="font-weight: bold;">{{ $post->title }}</p>
                                                         <p>{{ $post->body }}</p>
                                                         <div class="info">
                                                             Posted by {{ $post->user->name }}
@@ -86,10 +86,6 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
-                                                    <label for="title_idea">Edit the Title</label>
-                                                    <input type="text" class="form-control" id="title_idea"
-                                                           name="title_idea">
-                                                    <br><br>
                                                     <label for="post-body">Edit the Post</label>
                                                     <textarea class="form-control" name="post-body" id="post-body"
                                                               rows="5"></textarea>

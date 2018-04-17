@@ -98,15 +98,13 @@ class PostController extends Controller
     public function EditPost(Request $request)
     {
         $this->validate($request, [
-            'body' => 'required',
-            'title_idea' => 'required'
+            'body' => 'required'
         ]);
         $post = Post::find($request['postId']);
         if (Auth::user() != $post->user) {
             return redirect()->back();
         }
         $post->body = $request['body'];
-        $post->title = $request['title_idea'];
         $post->update();
         return response()->json(['new_body' => $post->body], 200);
     }
