@@ -30,8 +30,12 @@
                                         <td>{{ $user->updated_at }}</td>
                                         <td>{{ $user->rank }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-outline-success btn-xs">Edit</button>
-                                            <button type="button" class="btn btn-outline-danger btn-xs">Delete</button>
+                                            <button type="button" data-id="{{ $user->id }}"
+                                                    class="btn btn-outline-success btn-xs">Edit
+                                            </button>
+                                            <button type="button" data-id="{{ $user->id }}"
+                                                    class="btn btn-outline-danger btn-xs">Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
