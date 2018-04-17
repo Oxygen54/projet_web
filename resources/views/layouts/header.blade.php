@@ -80,7 +80,7 @@
                                 <a href="{{ route('shop') }}" class="dropdown-item">Shop</a>
                                 <a href="{{ route('event') }}" class="dropdown-item">Events</a>
                                 <a href="{{ route('idea') }}" class="dropdown-item">IdeaBox</a>
-                                <a href="{{ route('gestion') }}" class="dropdown-item">Gestion</a>
+                                <a href="{{ route('management') }}" class="dropdown-item">Management</a>
                                 <a href="{{ route('contact') }}" class="dropdown-item">Contact</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

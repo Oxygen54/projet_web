@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\User;
+
 
 class HomeController extends Controller
 {
@@ -18,9 +21,16 @@ class HomeController extends Controller
     }
 
 
-    public function gestion()
+    public function management()
     {
         $users = User::orderBy('created_at', 'desc')->get();
-        return view('gestion', ['users' => $users]);
+        return view('management', ['users' => $users]);
+    }
+
+    public function DeleteUser($user_id)
+    {
+        $user = User::find($user_id);
+        $user->delete();
+        return redirect()->route('management');
     }
 }

@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/gestion', 'PostController@gestion')->middleware('auth')->name('gestion');
+Route::get('/management', 'PostController@management')->middleware('auth')->name('management');
 
 // CONTACT
 // HOME
@@ -34,7 +34,8 @@ Route::get('/idea', 'PostController@idea')->name('idea');
 Route::get('/event', 'EventController@event')->name('event');
 
 // GESTION
-Route::get('/gestion', 'HomeController@gestion')->name('gestion');
+Route::get('/management', 'HomeController@management')->name('management');
+Route::get('/delete-user/{user_id}', ['uses' => 'HomeController@DeleteUser', 'as' => 'user.delete', 'middleware' => 'auth']);
 
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
