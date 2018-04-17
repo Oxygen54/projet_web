@@ -89,7 +89,7 @@ class EventController extends Controller
     public function EditEvent(Request $request)
     {
         $this->validate($request, [
-            'event' => 'required'
+            'event' => 'required|max:1000'
         ]);
         $event = Event::find($request['eventId']);
         if (Auth::user() != $event->user) {

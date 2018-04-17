@@ -98,7 +98,7 @@ class PostController extends Controller
     public function EditPost(Request $request)
     {
         $this->validate($request, [
-            'body' => 'required'
+            'body' => 'required|max:1000'
         ]);
         $post = Post::find($request['postId']);
         if (Auth::user() != $post->user) {
