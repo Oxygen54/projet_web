@@ -8,7 +8,7 @@
                     <div class="card-header">User Management</div>
                     <div class="card-body">
                         <div class="row">
-                            <table class="table table-hover table-bordered">
+                            <table class="table table-hover table-bordered" style="text-align: center;">
                                 <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -16,30 +16,25 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Creation Date</th>
                                     <th scope="col">Update Date</th>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Alexis</td>
-                                    <td>alexisdu54180@gmail.com</td>
-                                    <td>2018-04-13 06:44:00</td>
-                                    <td>2018-04-13 06:44:00</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Test</td>
-                                    <td>testeur@gmail.com</td>
-                                    <td>2018-04-15 12:24:00</td>
-                                    <td>2018-04-15 12:24:00</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Clara</td>
-                                    <td>clara@gmail.com</td>
-                                    <td>2018-04-16 14:12:00</td>
-                                    <td>2018-04-16 14:12:00</td>
-                                </tr>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->created_at }}</td>
+                                        <td>{{ $user->updated_at }}</td>
+                                        <td>{{ $user->rank }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-success btn-xs">Edit</button>
+                                            <button type="button" class="btn btn-outline-danger btn-xs">Delete</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

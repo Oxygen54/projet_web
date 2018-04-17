@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
-    public function gestion()
-    {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('gestion', ['posts' => $posts]);
-
-    }
 
     public function idea(){
         $posts = Post::orderBy('created_at', 'desc')->get();

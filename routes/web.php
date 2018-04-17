@@ -33,6 +33,9 @@ Route::get('/idea', 'PostController@idea')->name('idea');
 // EVENT
 Route::get('/event', 'EventController@event')->name('event');
 
+// GESTION
+Route::get('/gestion', 'HomeController@gestion')->name('gestion');
+
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
 Route::post('/create_post', ['uses' => 'PostController@CreatePost', 'as' => 'post.create', 'middleware' => 'auth']);
@@ -48,9 +51,20 @@ Route::post('/edit_event', ['uses' => 'EventController@EditEvent', 'as' => 'edit
 // IMAGE EVENT
 Route::get('/eventimage/{filename}', ['uses' => 'EventController@getEventImage', 'as' => 'event.image']);
 
-// SHOP
-Route::get('/shop', 'ShopController@shop')->name('shop');
-
 // CONTACT SEND
-// SHOP
 Route::post('/send', 'ContactController@send')->name('send');
+
+// SHOP
+Route::get('/shop', ['uses' => 'ProductController@getIndex', 'as' => 'shop.index']);
+Route::get('/shop/search', 'ProductController@search');
+Route::get('/shop/add-to-cart{id}', ['uses' => 'ProductController@getAddToCart', 'as' => 'shop.addToCart']);
+Route::get('/shop/reduce/{id}', ['uses' => 'ProductController@getReduceByOne', 'as' => 'shop.reduceByOne']);
+Route::get('/shop/remove/{id}', ['uses' => 'ProductController@getRemoveItem', 'as' => 'shop.remove']);
+Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart']);
+Route::get('/shop/checkout', ['uses' => 'ProductController@getCheckout', 'as' => 'checkout']);
+Route::get('/shop/category', ['uses' => 'CategoryController@getCategories', 'as' => 'shop.category']);
+Route::get('/shop/category{id}', ['uses' => 'CategoryController@getProductCategory', 'as' => 'shop.category-product']);
+Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart']);
+Route::post('/shop/checkout', ['uses' => 'ProductController@postCheckout', 'as' => 'checkout']);
+
+Route::get('/shop', 'ProductController@getIndex')->name('shop');

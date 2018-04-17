@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -16,13 +17,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function gestion()
     {
-        return view('/');
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('gestion', ['users' => $users]);
     }
 }
