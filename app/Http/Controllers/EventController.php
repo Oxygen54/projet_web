@@ -11,6 +11,9 @@ use App\Event;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -23,7 +26,7 @@ class EventController extends Controller
 
     public function likeEvent(Request $request)
     {
-        $event_id = $request['eventId'];
+        $event_id = $request['postid'];
         $is_like = $request['isLike'] === 'true';
         $update = false;
 
@@ -34,7 +37,7 @@ class EventController extends Controller
         }
 
         $user = Auth::user();
-        $like = $user->subscribes()->where('event_id', $event_id)->first();
+        $like = $user->subscribes()->where('postid', $event_id)->first();
 
         if ($like) {
             $already_like = $like->like;
@@ -69,6 +72,25 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request['title_event'];
         $event->body = $request['event'];
+
+        $event_id = $request['postid'];
+
+        $file = $request->file('image');
+        $filename = $event->title . '.jpg';
+        $old_filename = $event->title . '.jpg';
+        $update = false;
+        if (Storage::disk('local')->has($old_filename)) {
+            $old_file = Storage::disk('local')->get($old_filename);
+            Storage::disk('local')->put($filename, $old_file);
+            $update = true;
+        }
+        if ($file) {
+            Storage::disk('local')->put($filename, File::get($file));
+        }
+        if ($update && $old_filename !== $filename) {
+            Storage::delete($old_filename);
+        }
+
         $message = 'There was an error';
         if ($request->user()->events()->save($event)) {
             $message = 'Post successfully created!';
@@ -83,6 +105,7 @@ class EventController extends Controller
             return redirect()->back();
         }
         $event->delete();
+        Storage::disk('local')->delete($event->title . '.jpg');
         return redirect()->route('event')->with(['message' => 'Successfully deleted!']);
     }
 
@@ -91,13 +114,19 @@ class EventController extends Controller
         $this->validate($request, [
             'event' => 'required|max:1000'
         ]);
-        $event = Event::find($request['eventId']);
+        $event = Event::find($request['postid']);
         if (Auth::user() != $event->user) {
             return redirect()->back();
         }
         $event->body = $request['event'];
         $event->update();
         return response()->json(['new_body' => $event->body], 200);
+    }
+
+    public function getEventImage($filename)
+    {
+        $file = Storage::disk('local')->get($filename);
+        return new Response($file, 200);
     }
 
 }

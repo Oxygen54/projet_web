@@ -21,7 +21,8 @@
                                                     @if (Route::has('login'))
                                                         @auth
                                                             <header><h3>Add an event</h3></header>
-                                                            <form action="{{ route('event.create') }}" method="post">
+                                                            <form action="{{ route('event.create') }}" method="post"
+                                                                  enctype="multipart/form-data">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control"
                                                                            id="title_event" name="title_event"
@@ -32,6 +33,11 @@
                                                                               id="new-event"
                                                                               style="min-height:100px;height:50%;"
                                                                               placeholder="Write your event..."></textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="image">Image (only .jpg)</label>
+                                                                    <input type="file" name="image" class="form-control"
+                                                                           id="image">
                                                                 </div>
                                                                 <button type="submit" class="btn btn-outline-primary">
                                                                     Post event
@@ -52,8 +58,20 @@
                                                                     @foreach($events as $event)
                                                                         <article class="event"
                                                                                  data-postid="{{ $event->id }}">
-                                                                            <p>{{ $event->title }}</p>
+                                                                            <p style="font-weight: bold;">{{ $event->title }}</p>
                                                                             <p>{{ $event->body }}</p>
+                                                                            <p>
+                                                                                @if (Storage::disk('local')->has($event->title . '.jpg'))
+                                                                                    <section class="row new-event">
+                                                                                        <div class="col-md-6 col-md-offset-3">
+                                                                                            <img src="{{ route('event.image', ['filename' => $event->title . '.jpg']) }}"
+                                                                                                 alt=""
+                                                                                                 style="width: 80%;height:auto;"
+                                                                                                 class="img-responsive">
+                                                                                        </div>
+                                                                                    </section>
+                                                                                @endif
+                                                                            </p>
                                                                             <div class="info">
                                                                                 Posted by {{ $event->user->name }}
                                                                                 on {{ $event->created_at }}
@@ -102,6 +120,12 @@
                                                                         <label for="event-body">Edit the event</label>
                                                                         <textarea class="form-control" name="event-body"
                                                                                   id="event-body" rows="5"></textarea>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="image">Image (only .jpg)</label>
+                                                                        <input type="file" name="image"
+                                                                               class="form-control"
+                                                                               id="image">
                                                                     </div>
                                                                 </form>
                                                             </div>

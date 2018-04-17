@@ -7,7 +7,7 @@ $(document).ready(function () {
         eventBodyElement = event.target.parentNode.parentNode.childNodes[0];
 
         var eventBody = eventBodyElement.textContent;
-        eventId = event.target.parentNode.parentNode.dataset['eventid'];
+        eventId = event.target.parentNode.parentNode.dataset['postid'];
         $('#event-body').val(eventBody);
         $('#edit-modal').modal();
     });
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
     $('.subscribe').on('click', function (event) {
         event.preventDefault();
-        eventId = event.target.parentNode.parentNode.dataset['eventid'];
+        eventId = event.target.parentNode.parentNode.dataset['postid'];
         var isLike = event.target.previousElementSibling == null;
 
         $.ajax({
