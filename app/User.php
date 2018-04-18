@@ -32,7 +32,7 @@ class User extends Model implements Authenticatable
 
     public function isAdmin()
     {
-        return $this->rank === '2';
+        return $this->rank == 0;
     }
 
 

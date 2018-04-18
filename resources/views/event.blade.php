@@ -20,6 +20,8 @@
 
                                                     @if (Route::has('login'))
                                                         @auth
+
+
                                                             <header><h3>Add an event</h3></header>
                                                             <form action="{{ route('event.create') }}" method="post"
                                                                   enctype="multipart/form-data">
@@ -47,6 +49,9 @@
                                                             </form>
                                                             <br>
                                                         @else
+
+
+
                                                         @endauth
                                                     @endif
 

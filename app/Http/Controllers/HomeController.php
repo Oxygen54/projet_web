@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Request;
+
 
 
 class HomeController extends Controller
@@ -26,17 +26,23 @@ class HomeController extends Controller
     public function management()
     {
 
-        $this->authorize('view', Home::class);
+
 
 
         $users = User::orderBy('created_at', 'desc')->get();
         return view('management', ['users' => $users]);
     }
 
+    /**
+     * @param $user_id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws AuthorizationException
+     */
     public function DeleteUser($user_id)
     {
 
         $this->authorize('delete', $user_id);
+
 
 
         $user = User::find($user_id);
@@ -44,6 +50,11 @@ class HomeController extends Controller
         return redirect()->route('management');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws AuthorizationException
+     */
     public function EditUser(Request $request)
     {
 
