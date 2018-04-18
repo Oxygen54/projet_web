@@ -66,5 +66,7 @@ Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' =
 Route::get('/shop/checkout', ['uses' => 'ProductController@getCheckout', 'as' => 'checkout', 'middleware' => 'auth']);
 Route::get('/shop/category', ['uses' => 'CategoryController@getCategories', 'as' => 'shop.category', 'middleware' => 'auth']);
 Route::get('/shop/category{id}', ['uses' => 'CategoryController@getProductCategory', 'as' => 'shop.category-product', 'middleware' => 'auth']);
+Route::get('/shop/add-product', ['uses' => 'AddProductController@formulaire', 'as' => 'shop.add-product']);
+Route::post('/shop/add-product', ['uses' => 'AddProductController@add', 'as' => 'shop.add-product']);
 Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart', 'middleware' => 'auth']);
 Route::post('/shop/checkout', ['uses' => 'ProductController@postCheckout', 'as' => 'checkout', 'middleware' => 'auth']);

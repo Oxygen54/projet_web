@@ -3,6 +3,11 @@
 @section('content')
 
     <div class="flex-center" style="margin-bottom: 15px; margin-top: -10px;">
+
+        <a href="{{ route('shop.add-product') }}" class="btn btn-outline-success btn-md" style="margin-right: 5px;">Add
+            a product</a>
+        <a href="{{ route('shop.category') }}" class="btn btn-outline-warning btn-md" style="margin-right: 5px;">Filter
+            by category</a>
         <a href="{{ route('shop.shoppingCart')}}" class="btn btn-outline-info btn-md">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
             <span class="badge badge-danger"> {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }} </span>

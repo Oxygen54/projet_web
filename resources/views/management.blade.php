@@ -22,7 +22,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($users as $user)
-                                    <tr  data-userid="{{ $user->id }}">
+                                    <tr data-userid="{{ $user->id }}">
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>

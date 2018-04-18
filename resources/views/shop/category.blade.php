@@ -5,7 +5,7 @@
   <div class="row">
       @foreach($categoryChunk as $categories)
       <div class="col-sm-6 col-md-4 text-center">
-        <a href="#" class="thumbnail">
+          <a href="/shop/category{{$categories->id}}" class="thumbnail">
         <img src="..\img\{{ $categories->imagePath }}" alt="{{ $categories-> label }}">
         <br>
         <label>{{ $categories->label }}</label>

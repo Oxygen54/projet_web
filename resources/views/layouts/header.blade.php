@@ -86,7 +86,7 @@
                                 <a href="{{ route('contact') }}" class="dropdown-item">Contact</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                   document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 

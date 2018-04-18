@@ -8,9 +8,10 @@ class Product extends Model
 {
     protected $fillable = ['imagePath', 'title', 'description', 'price', 'category'];
 
-    public function post()
+    public function product()
     {
-        return $this->belongsTo('App\Product');
+
+        return $this->hasMany('App\Categories');
     }
 
 }
