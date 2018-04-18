@@ -34,9 +34,9 @@ Route::get('/idea', 'PostController@idea')->name('idea');
 Route::get('/event', 'EventController@event')->name('event');
 
 // GESTION
-Route::get('/management', 'HomeController@management')->name('management');
-Route::get('/delete-user/{user_id}', ['uses' => 'HomeController@DeleteUser', 'as' => 'user.delete', 'middleware' => 'auth']);
-Route::post('/edit_user', ['uses' => 'HomeController@EditUser', 'as' => 'edit_user', 'middleware' => 'auth']);
+Route::get('/management', 'UserController@management')->name('management');
+Route::get('/delete-user/{user_id}', ['uses' => 'UserController@DeleteUser', 'as' => 'user.delete', 'middleware' => 'auth']);
+Route::post('/edit_user', ['uses' => 'UserController@EditUser', 'as' => 'edit_user', 'middleware' => 'auth']);
 
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);

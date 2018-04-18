@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.
