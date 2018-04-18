@@ -21,7 +21,12 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: urlEdit,
-            data: {name: $('#user-name').val(), email: $('#user-email').val(), rank: $('#user-rank').val(), userId: userId}
+            data: {
+                name: $('#user-name').val(),
+                email: $('#user-email').val(),
+                rank: $('#user-rank').val(),
+                userId: userId
+            }
         })
             .done(function (msg) {
                 $(userNameElement).text(msg['new_body']);

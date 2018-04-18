@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    var titleElement, priceElement, descriptionElement, imageElement, categorieElement  = null;
+$(document).ready(function () {
+    var titleElement, priceElement, descriptionElement, imageElement, categorieElement = null;
 
     $('.add_product').on('click', function (event) {
         event.preventDefault();
@@ -22,7 +22,13 @@ $(document).ready(function() {
         $.ajax({
             method: 'POST',
             url: urlAdd,
-            data: {title: $('#title').val(), price: $('#price').val(), description: $('#description').val(), imagePath: $('#imagePath').val(), catproducts_id: $('#catproducts_id').val()}
+            data: {
+                title: $('#title').val(),
+                price: $('#price').val(),
+                description: $('#description').val(),
+                imagePath: $('#imagePath').val(),
+                catproducts_id: $('#catproducts_id').val()
+            }
         })
             .done(function () {
                 $('#edit-modal').modal('hide');

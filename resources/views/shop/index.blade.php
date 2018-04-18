@@ -65,20 +65,20 @@
                             <form method="post" action="">
                                 <div class="form-group">
                                     <label for="title" style="text-align: left;">Product title</label>
-                                    <input type="text" name="title" placeholder="The coutchi bag" class="form-control"/>
+                                    <input type="text" name="title" id="title" placeholder="The coutchi bag" class="form-control"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="price">Product price</label>
-                                    <input type="text" name="price" placeholder="$100" class="form-control"/>
+                                    <input type="text" name="price" id="price" placeholder="$100" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Product description</label>
-                                    <textarea name="description" rows="5" placeholder="The best bag in the world!" class="form-control"> </textarea>
+                                    <textarea name="description" id="description" rows="5" placeholder="The best bag in the world!" class="form-control"> </textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="imagePath">Image's url of the Product</label>
-                                    <input type="text" name="imagePath" placeholder="http://www.bde.fr/image.jpg" class="form-control"/>
+                                    <input type="text" name="imagePath" id="imagePath" placeholder="http://www.bde.fr/image.jpg" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="catproducts_id">Product categorie</label>
