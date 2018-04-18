@@ -81,6 +81,9 @@ class PostController extends Controller
 
     public function DeletePost($post_id)
     {
+
+        $this->authorize('delete', $post_id);
+
         $post = Post::where('id', $post_id)->first();
         if (Auth::user() != $post->user) {
             return redirect()->back();
@@ -91,6 +94,9 @@ class PostController extends Controller
 
     public function EditPost(Request $request)
     {
+
+        $this->authorize('update', $request);
+
         $this->validate($request, [
             'body' => 'required|max:1000'
         ]);

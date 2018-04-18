@@ -10,6 +10,16 @@ class IdeaboxPolicy
 {
     use HandlesAuthorization;
 
+
+    public function before(User $user, $ability)
+    {
+
+        if ($user->isAdmin()) {
+
+            return true;
+        }
+
+    }
     /**
      * Determine whether the user can view the post.
      *
@@ -42,7 +52,7 @@ class IdeaboxPolicy
      */
     public function update(User $user, Post $post)
     {
-        //
+        return $user->id === $post->user_id;
     }
 
     /**
@@ -54,6 +64,6 @@ class IdeaboxPolicy
      */
     public function delete(User $user, Post $post)
     {
-        //
+        return $user->id === $post->user_id;
     }
 }

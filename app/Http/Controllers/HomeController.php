@@ -29,6 +29,10 @@ class HomeController extends Controller
 
     public function DeleteUser($user_id)
     {
+
+        $this->authorize('delete', $user_id);
+
+
         $user = User::find($user_id);
         $user->delete();
         return redirect()->route('management');
@@ -36,6 +40,9 @@ class HomeController extends Controller
 
     public function EditUser(Request $request)
     {
+
+        $this->authorize('update', $request);
+
         $this->validate($request, [
             'name' => 'required|max:10',
             'email' => 'required|max:320',

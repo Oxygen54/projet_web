@@ -94,7 +94,7 @@ class EventController extends Controller
     public function DeleteEvent($event_id)
     {
 
-        $this->authorize('delete', $request);
+        $this->authorize('delete', $event_id);
 
 
         $event = Event::where('id', $event_id)->first();
@@ -109,7 +109,7 @@ class EventController extends Controller
     public function EditEvent(Request $request)
     {
 
-        $this->authorize('edit', $request);
+        $this->authorize('update', $request);
 
 
 
