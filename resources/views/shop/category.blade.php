@@ -1,9 +1,5 @@
-@extends('layouts.shop.header')
-
-@section('title')
-  Categories
-@endsection
-
+@section('title', 'Shop - Categories')
+@extends('layouts.header')
 @section('content')
   @foreach($category->chunk(3) as $categoryChunk)
   <div class="row">
