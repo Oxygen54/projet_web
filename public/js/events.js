@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.event').find('.interaction').find('.edit').on('click', function (event) {
         event.preventDefault();
 
+        // Get the values from view
         eventId = event.target.parentNode.parentNode.dataset['postid'];
         eventElement = event.target.parentNode.parentNode.dataset['event'];
         imageElement = event.target.parentNode.parentNode.dataset['image'];
@@ -15,6 +16,8 @@ $(document).ready(function () {
     });
 
     $('#modal-save').on('click', function () {
+
+        // Send with POST method
         $.ajax({
             method: 'POST',
             url: urlEdit,

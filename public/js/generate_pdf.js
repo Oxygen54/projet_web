@@ -1,4 +1,6 @@
 function MakePDF() {
+
+    // Create a new PDF
         var pdf = new jsPDF('p', 'pt', 'a3');
 
         source = $('#users_table')[0];

@@ -6,12 +6,15 @@
             <div class="panel-heading">
                 <h2>Contact Form</h2>
             </div>
-
-            <div class="panel-body">
-
-                <div class="alert alert-success hide-box mt-4" id="contactSuccess">
-                    <p><strong>Success!</strong> We got your message.</p>
+            @if(Session::has('success'))
+                <div class="row">
+                    <div class="col-md-4 col-md-4"></div>
+                    <div id="charge-message" class="alert alert-success">
+                        {{ Session::get('success') }}
+                    </div>
                 </div>
+    @endif
+            <div class="panel-body">
 
                 <div class="alert alert-danger hide-box mt-4" id="contactError">
                     <p><strong>Error!</strong> Problem sending message</p>

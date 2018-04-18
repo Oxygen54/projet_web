@@ -14,6 +14,7 @@
 
             $submitButton.val($submitButton.data('loading-text') ? $submitButton.data('loading-text') : 'Loading...').attr('disabled', true);
 
+            // Send with POST method
             $.ajax({
                 type: 'POST',
                 url: $form.attr('action'),

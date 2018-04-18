@@ -6,10 +6,14 @@ $(document).ready(function () {
 
     $('.edit').on('click', function (event) {
         event.preventDefault();
+
+        // Get the values from view
         userNameElement = event.target.parentNode.parentNode.dataset['user-name'];
         userEmailElement = event.target.parentNode.parentNode.dataset['user-email'];
         userRankElement = event.target.parentNode.parentNode.dataset['user-rank'];
 
+
+        // Set the values in var
         userId = event.target.parentNode.parentNode.dataset['userid'];
         $('#user-name').val(userNameElement);
         $('#user-email').val(userEmailElement);
@@ -18,6 +22,8 @@ $(document).ready(function () {
     });
 
     $('#modal-save').on('click', function () {
+
+        // Send it with POST method
         $.ajax({
             method: 'POST',
             url: urlEdit,

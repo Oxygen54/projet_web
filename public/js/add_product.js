@@ -4,12 +4,14 @@ $(document).ready(function () {
     $('.add_product').on('click', function (event) {
         event.preventDefault();
 
+        // Get the values from view
         titleElement = event.target.parentNode.parentNode.dataset['title'];
         priceElement = event.target.parentNode.parentNode.dataset['price'];
         descriptionElement = event.target.parentNode.parentNode.dataset['description'];
         imageElement = event.target.parentNode.parentNode.dataset['imagePath'];
         categorieElement = event.target.parentNode.parentNode.dataset['catproducts_id'];
 
+        // Set the values in var
         $('#title').val(titleElement);
         $('#price').val(priceElement);
         $('#description').val(descriptionElement);
@@ -19,6 +21,8 @@ $(document).ready(function () {
     });
 
     $('#modal-save').on('click', function () {
+
+        // Send it to POST method
         $.ajax({
             method: 'POST',
             url: urlAdd,
@@ -30,6 +34,8 @@ $(document).ready(function () {
                 catproducts_id: $('#catproducts_id').val()
             }
         })
+
+            // Hide modal when done
             .done(function () {
                 $('#edit-modal').modal('hide');
             });
