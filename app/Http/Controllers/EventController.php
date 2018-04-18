@@ -104,13 +104,16 @@ class EventController extends Controller
         $this->validate($request, [
             'event' => 'required|max:1000'
         ]);
-        $event = Event::find($request['postid']);
-        if (Auth::user() != $event->user) {
-            return redirect()->back();
+        $event = Event::find($request['eventId']);
+        $file = $request->file('image');
+        $filename = $event->title . '.jpg';
+
+        if ($file) {
+            Storage::disk('local')->put($filename, File::get($file));
         }
         $event->body = $request['event'];
         $event->update();
-        return response()->json(['new_body' => $event->body], 200);
+        return redirect()->route('event');
     }
 
     public function getEventImage($filename)

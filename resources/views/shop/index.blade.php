@@ -105,7 +105,7 @@
         @else
         @endauth
     @endif
-    <script type="text/javascript" src="{{ asset('/js/add_product.js') }}"></script>
+    <script src="{{ asset('/js/add_product.js') }}"></script>
     <script type="text/javascript">
         var urlAdd = '{{ route('shop.add-product') }}';
     </script>

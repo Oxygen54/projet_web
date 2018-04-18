@@ -28,8 +28,7 @@ $(document).ready(function () {
                 userId: userId
             }
         })
-            .done(function (msg) {
-                $(userNameElement).text(msg['new_body']);
+            .done(function () {
                 $('#edit-modal').modal('hide');
             });
     });

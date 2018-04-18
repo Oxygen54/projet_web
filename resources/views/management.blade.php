@@ -86,10 +86,10 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
-    <script type="text/javascript" src="{{ asset('/js/generate_pdf.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/edit_user.js') }}"></script>
+    <script src="{{ asset('/js/generate_pdf.js') }}"></script>
+    <script src="{{ asset('/js/edit_user.js') }}"></script>
     <script type="text/javascript">
         var urlEdit = '{{ route('edit_user') }}';
     </script>

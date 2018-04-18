@@ -1,14 +1,16 @@
 $(document).ready(function () {
     var eventId = 0;
-    var eventBodyElement = null;
+    var eventElement, imageElement = null;
 
     $('.event').find('.interaction').find('.edit').on('click', function (event) {
         event.preventDefault();
-        eventBodyElement = event.target.parentNode.parentNode.childNodes[0];
 
-        var eventBody = eventBodyElement.textContent;
         eventId = event.target.parentNode.parentNode.dataset['postid'];
-        $('#event-body').val(eventBody);
+        eventElement = event.target.parentNode.parentNode.dataset['event'];
+        imageElement = event.target.parentNode.parentNode.dataset['image'];
+
+        $('#event').val(eventElement);
+        $('#image').val(imageElement);
         $('#edit-modal').modal();
     });
 
@@ -16,10 +18,9 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: urlEdit,
-            data: {body: $('#event-body').val(), eventId: eventId, _token: token}
+            data: {event: $('#event-body').val(),image: $('#image').val(), eventId: eventId, _token: token}
         })
             .done(function (msg) {
-                $(eventBodyElement).text(msg['new_body']);
                 $('#edit-modal').modal('hide');
             });
     });

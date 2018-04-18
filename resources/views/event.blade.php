@@ -67,7 +67,7 @@
                                                                                             <img src="{{ route('event.image', ['filename' => $event->title.'.jpg']) }}"
                                                                                                  alt=""
                                                                                                  style="width: 80%;height:auto;"
-                                                                                                 class="img-responsive">
+                                                                                                 class="img-responsive" id="image">
                                                                                         </div>
                                                                                     </section>
                                                                                 @endif
