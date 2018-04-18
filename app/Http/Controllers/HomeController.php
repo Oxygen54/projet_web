@@ -33,4 +33,23 @@ class HomeController extends Controller
         $user->delete();
         return redirect()->route('management');
     }
+
+    public function EditUser(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:10',
+            'email' => 'required|max:320',
+            'rank' => 'required|max:1'
+        ]);
+        $user = User::find($request['userId']);
+
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->rank = $request['rank'];
+        $user->updated_at = date('Y-m-d H:i:s');
+
+        $user->update();
+
+        return redirect()->route('management');
+    }
 }

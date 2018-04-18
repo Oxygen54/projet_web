@@ -36,6 +36,7 @@ Route::get('/event', 'EventController@event')->name('event');
 // GESTION
 Route::get('/management', 'HomeController@management')->name('management');
 Route::get('/delete-user/{user_id}', ['uses' => 'HomeController@DeleteUser', 'as' => 'user.delete', 'middleware' => 'auth']);
+Route::post('/edit_user', ['uses' => 'HomeController@EditUser', 'as' => 'edit_user', 'middleware' => 'auth']);
 
 // LIKE / DISLIKE SYSTEM
 Route::post('/like', ['uses' => 'PostController@LikePost', 'as' => 'like']);
@@ -67,5 +68,3 @@ Route::get('/shop/category', ['uses' => 'CategoryController@getCategories', 'as'
 Route::get('/shop/category{id}', ['uses' => 'CategoryController@getProductCategory', 'as' => 'shop.category-product']);
 Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart']);
 Route::post('/shop/checkout', ['uses' => 'ProductController@postCheckout', 'as' => 'checkout']);
-
-Route::get('/shop', 'ProductController@getIndex')->name('shop');

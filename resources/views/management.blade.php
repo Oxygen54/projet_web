@@ -22,7 +22,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($users as $user)
-                                    <tr>
+                                    <tr  data-userid="{{ $user->id }}">
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
@@ -31,7 +31,7 @@
                                         <td>{{ $user->rank }}</td>
                                         <td>
                                             <a href="#" class="btn btn-outline-success btn-xs edit">Edit</a>
-                                            <a href="{{ route('user.delete', ['user_id' => $user->id]) }}"
+                                            <a href="{{ route('user.delete', ['userid' => $user->id]) }}"
                                                class="btn btn-outline-danger btn-xs">Delete</a>
                                         </td>
                                     </tr>
@@ -84,9 +84,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ asset('/js/user_edit.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/edit_user.js') }}"></script>
     <script type="text/javascript">
-        var token = '{{ Session::token() }}';
-        var urlEdit = '{{ route('edit') }}';
+        var urlEdit = '{{ route('edit_user') }}';
     </script>
 @endsection

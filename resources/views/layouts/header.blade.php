@@ -20,16 +20,19 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <script src="{{ URL::to('/js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
     <link href="{{URL::asset('/css/main.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div id="app">
@@ -53,7 +56,6 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a class="nav-link" href="{{ route('shop') }}" style="color: white;">Shop</a></li>
                         <li><a class="nav-link" href="{{ route('event') }}" style="color: white;">Events</a></li>
                         <li><a class="nav-link" href="{{ route('idea') }}" style="color: white;">IdeaBox</a></li>
                         <li><a class="nav-link" href="{{ route('contact') }}" style="color: white;">Contact</a></li>
@@ -77,7 +79,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <a href="{{ route('shop') }}" class="dropdown-item">Shop</a>
+                                <a href="{{ route('shop.index') }}" class="dropdown-item">Shop</a>
                                 <a href="{{ route('event') }}" class="dropdown-item">Events</a>
                                 <a href="{{ route('idea') }}" class="dropdown-item">IdeaBox</a>
                                 <a href="{{ route('management') }}" class="dropdown-item">Management</a>

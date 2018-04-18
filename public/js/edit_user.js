@@ -1,14 +1,19 @@
 $(document).ready(function () {
-    var postId = 0;
-    var postBodyElement = null;
+    var userId = 0;
+    var userNameElement = null;
+    var userEmailElement = null;
+    var userRankElement = null;
 
     $('.edit').on('click', function (event) {
         event.preventDefault();
+        userNameElement = event.target.parentNode.parentNode.dataset['user-name'];
+        userEmailElement = event.target.parentNode.parentNode.dataset['user-email'];
+        userRankElement = event.target.parentNode.parentNode.dataset['user-rank'];
 
-        postBodyElement = event.target.parentNode.parentNode.childNodes[0];
-        var postBody = postBodyElement.textContent;
-        postId = event.target.parentNode.parentNode.dataset['postid'];
-        $('#user-name').val(postBody);
+        userId = event.target.parentNode.parentNode.dataset['userid'];
+        $('#user-name').val(userNameElement);
+        $('#user-email').val(userEmailElement);
+        $('#user-rank').val(userRankElement);
         $('#edit-modal').modal();
     });
 
@@ -16,10 +21,10 @@ $(document).ready(function () {
         $.ajax({
             method: 'POST',
             url: urlEdit,
-            data: {body: $('#user-name').val(), postId: postId, _token: token}
+            data: {name: $('#user-name').val(), email: $('#user-email').val(), rank: $('#user-rank').val(), userId: userId}
         })
             .done(function (msg) {
-                $(postBodyElement).text(msg['new_body']);
+                $(userNameElement).text(msg['new_body']);
                 $('#edit-modal').modal('hide');
             });
     });
