@@ -10,6 +10,8 @@ use App\User;
 
 class HomeController extends Controller
 {
+
+
     /**
      * Create a new controller instance.
      *
@@ -23,6 +25,10 @@ class HomeController extends Controller
 
     public function management()
     {
+
+        $this->authorize('view', Home::class);
+
+
         $users = User::orderBy('created_at', 'desc')->get();
         return view('management', ['users' => $users]);
     }
