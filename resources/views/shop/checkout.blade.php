@@ -1,8 +1,12 @@
-@section('title', 'Shop - Checkout')
 @extends('layouts.header')
+
+@section('title')
+    BDE - Shop
+@endsection
+
 @section('content')
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1>Checkout</h1>
             <h4>Your Total: {{ $total }} €</h4>
             <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''}}">
@@ -10,7 +14,7 @@
             </div>
 
             <form action="{{ route('checkout')}}" method="post" id="checkout-form">
-                <div class="row" style="display:block">
+                <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -35,15 +39,15 @@
                             <input type="text" id="card-number" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-md-6 offset-md-3">
+                    <div class="col-xs-12">
                         <div class="row">
-                            <div class="col-xs-6" style="margin-right: 25px;">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label for="card-expiry-month">Expiration Month</label>
                                     <input type="text" id="card-expiry-month" class="form-control" required>
                                 </div>
                             </div>
-                            <div class="col-xs-6" style="margin-left: 25px;">
+                            <div class="col-xs-6">
                                 <div class="form-group">
                                     <label for="card-expiry-year">Expiration Year</label>
                                     <input type="text" id="card-expiry-year" class="form-control" required>

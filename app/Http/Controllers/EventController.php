@@ -65,6 +65,9 @@ class EventController extends Controller
 
     public function CreateEvent(Request $request)
     {
+
+        $this->authorize('create', $request);
+
         $this->validate($request, [
             'title_event' => 'required|max: 30',
             'event' => 'required|max:1000'
@@ -90,6 +93,10 @@ class EventController extends Controller
 
     public function DeleteEvent($event_id)
     {
+
+        $this->authorize('delete', $request);
+
+
         $event = Event::where('id', $event_id)->first();
         if (Auth::user() != $event->user) {
             return redirect()->back();
@@ -101,6 +108,11 @@ class EventController extends Controller
 
     public function EditEvent(Request $request)
     {
+
+        $this->authorize('edit', $request);
+
+
+
         $this->validate($request, [
             'event' => 'required|max:1000'
         ]);

@@ -57,14 +57,14 @@ Route::get('/eventimage/{filename}', ['uses' => 'EventController@getEventImage',
 Route::post('/send', 'ContactController@send')->name('send');
 
 // SHOP
-Route::get('/shop', ['uses' => 'ProductController@getIndex', 'as' => 'shop.index', 'middleware' => 'auth']);
+Route::get('/shop', ['uses' => 'ProductController@getIndex', 'as' => 'shop.index']);
 Route::get('/shop/search', 'ProductController@search');
-Route::get('/shop/add-to-cart{id}', ['uses' => 'ProductController@getAddToCart', 'as' => 'shop.addToCart', 'middleware' => 'auth']);
-Route::get('/shop/reduce/{id}', ['uses' => 'ProductController@getReduceByOne', 'as' => 'shop.reduceByOne', 'middleware' => 'auth']);
-Route::get('/shop/remove/{id}', ['uses' => 'ProductController@getRemoveItem', 'as' => 'shop.remove', 'middleware' => 'auth']);
-Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart', 'middleware' => 'auth']);
-Route::get('/shop/checkout', ['uses' => 'ProductController@getCheckout', 'as' => 'checkout', 'middleware' => 'auth']);
-Route::get('/shop/category', ['uses' => 'CategoryController@getCategories', 'as' => 'shop.category', 'middleware' => 'auth']);
-Route::get('/shop/category{id}', ['uses' => 'CategoryController@getProductCategory', 'as' => 'shop.category-product', 'middleware' => 'auth']);
-Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart', 'middleware' => 'auth']);
-Route::post('/shop/checkout', ['uses' => 'ProductController@postCheckout', 'as' => 'checkout', 'middleware' => 'auth']);
+Route::get('/shop/add-to-cart{id}', ['uses' => 'ProductController@getAddToCart', 'as' => 'shop.addToCart']);
+Route::get('/shop/reduce/{id}', ['uses' => 'ProductController@getReduceByOne', 'as' => 'shop.reduceByOne']);
+Route::get('/shop/remove/{id}', ['uses' => 'ProductController@getRemoveItem', 'as' => 'shop.remove']);
+Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart']);
+Route::get('/shop/checkout', ['uses' => 'ProductController@getCheckout', 'as' => 'checkout']);
+Route::get('/shop/category', ['uses' => 'CategoryController@getCategories', 'as' => 'shop.category']);
+Route::get('/shop/category{id}', ['uses' => 'CategoryController@getProductCategory', 'as' => 'shop.category-product']);
+Route::get('/shop/shopping-cart', ['uses' => 'ProductController@getCart', 'as' => 'shop.shoppingCart']);
+Route::post('/shop/checkout', ['uses' => 'ProductController@postCheckout', 'as' => 'checkout']);

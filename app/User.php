@@ -29,4 +29,11 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany('App\Subscribe');
     }
+
+    public function isAdmin()
+    {
+        return $this->rank === '2';
+    }
+
+
 }
