@@ -27,6 +27,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+// ALL THE PICTURES
+Route::get('/pictures', function () { return view('pictures');})->name('pictures');
+
 // IDEA BOX
 Route::get('/idea', 'PostController@idea')->name('idea');
 

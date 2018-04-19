@@ -15,16 +15,15 @@ class ContactController extends Controller
         $data = array(
                         'name'=>$request->name,
                         'email'=>$request->email,
-                        'phone'=>$request->phone, 
-                        'messagetext'=>$request->message
+                        'message_text'=>$request->message
                     );
 
         // Create the send mail function
-        Mail::send('contact', $data, function ($message) use ($request){
+        Mail::send('contact_template', $data, function ($message) use ($request){
 
             /* Config ********** */
-            $to_email = "alexisdu54180@gmail.com";
-            $to_name  = "Alexis";
+            $to_email = "contact@bde.fr";
+            $to_name  = "BDE";
             $subject  = "BDE Contact Form";
 
             $message->subject ($subject);

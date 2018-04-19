@@ -13,7 +13,7 @@
                         {{ Session::get('success') }}
                     </div>
                 </div>
-    @endif
+            @endif
             <div class="panel-body">
 
                 <div class="alert alert-danger hide-box mt-4" id="contactError">
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label>Email *</label>
                         <input type="email" value="" data-msg-required="Please enter your email"
-                               data-msg-email="Please entera valid email" maxlength="100" class="form-control"
+                               data-msg-email="Please enter a valid email" maxlength="100" class="form-control"
                                name="email" id="email" placeholder="Email" required>
                     </div>
 
